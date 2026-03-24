@@ -1,0 +1,27 @@
+body {background-color: lightblue;}
+
+h1:hover {background-color: grey;
+transform: translateY(-5px);
+border-radius: 10px;
+padding-left: 8px;}
+
+h1 {transition: 0.5s;}
+
+ul ul {display: flex;
+gap: 30px;}
+
+h2 {background-color: pink;
+border-radius: 10px;
+padding-left: 8px;
+transition: 0.5s;}
+
+h2:hover {color: red;
+background-color: white;
+transform: translateX(30px);
+width: 80%;}
+
+li:hover {transform: scale(1.02);
+box-shadow: 5px 5px 30px grey;
+border-radius: 5px;}
+
+li {transition: 0.2s;}

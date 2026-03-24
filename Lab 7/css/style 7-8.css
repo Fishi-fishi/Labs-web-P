@@ -1,0 +1,36 @@
+body {background: linear-gradient(to right, red, blue);}
+
+h1 {background-color: lightblue;
+border-radius: 10px;
+width: 40%;
+transition: 0.5s;
+padding-left: 8px;
+box-shadow: 5px 5px 30px grey;
+border-radius: 5px;}
+
+h1:hover {background-color: blue;
+transform: translateY(-5px);
+border-radius: 10px;
+padding-left: 8px;
+width: 100%;}
+
+ol {font-size: 23px;}
+
+ul {display: flex;
+gap: 30px;}
+
+ol span {transition: 0.5s;
+display: inline-block;}
+
+ol span:hover {background-color: purple;
+transform: translateY(-3px);
+border-radius: 10px;
+padding-left: 8px;}
+
+ul span {transition: 0.5s;
+box-shadow: 5px 5px 30px white;
+border-radius: 5px;
+background: transparent;
+display: inline-block;}
+
+ul span:hover {transform: scale(1.05);}

@@ -1,0 +1,26 @@
+body {background-image: url("../images/google.jpg");
+background-size: cover;
+font-size: 18px;}
+
+h1:hover {background-color: grey;
+transform: translateY(-5px);
+border-radius: 10px;
+padding-left: 8px;
+width: 100%}
+
+h1 {background-color: lightblue;
+border-radius: 10px;
+width: 40%;
+transition: 0.5s;}
+
+dt {font-size: 25px;}
+dd {font-size: 20px;}
+
+.definition {display: inline-block;
+transition: 0.5s;}
+
+.definition:hover {background-color: pink;
+transform: translateY(-3px);
+border-radius: 10px;
+padding-left: 8px;
+font-size: 22px;}
