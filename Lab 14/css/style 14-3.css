@@ -1,0 +1,29 @@
+body {background: linear-gradient(to right, rgb(67, 196, 183), rgb(227, 171, 255));}
+
+.small {font-size: 15px;
+color: gray;
+font-style: italic;
+margin: 2px 0;}
+
+.menu {display: inline-block;
+margin-left: 80px;
+font-size: 23pt;
+color: rgb(23, 219, 230);
+font-weight: 700;
+cursor: pointer;
+background: black;
+border-radius: 5px;
+transition: 0.5s;
+padding: 5px;}
+
+.menu:hover {transform: scale(1.1);}
+
+h2 {display:inline-block;
+margin-left: 200px;
+font-size: 20pt;}
+
+p {font-size: 18pt;
+color: rgb(76, 76, 77);}
+
+a {text-decoration: none;
+color: rgb(23, 219, 230);}

@@ -1,0 +1,25 @@
+.first {font-size: 20pt;
+font-weight: 400;
+font-style: italic;
+color: grey;
+text-decoration: underline;
+text-align: center;}
+
+.second {font-size: 22pt;
+font-weight: 700;
+text-indent: 100px;
+background-color: black;
+color: white;
+font-family: arial;}
+
+.third {font-size: 24pt;
+font-weight: 400;
+font-style: oblique;
+text-decoration: underline;
+text-transform: uppercase;
+word-spacing: 15px;}
+
+.fourth {font-size: 26pt;
+font-weight: 700;
+color: rgb(155, 0, 1616);
+text-align: center;}

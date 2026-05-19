@@ -1,0 +1,12 @@
+body {background-color: rgb(93, 133, 212);}
+
+.style1 {color: yellow;
+font-size: 28px;
+text-align: center;}
+
+.style2 {color: blue;
+font-style: italic;}
+
+.style3 {color: green;
+text-transform: uppercase;
+letter-spacing: 2px;}

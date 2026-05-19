@@ -1,0 +1,10 @@
+body {background-image: url(../images/Kotelva.jpg);}
+
+.gallery {display: flex;
+justify-content: center;
+gap: 80px;
+margin-top: 200px;}
+
+.gallery img {height: auto;
+display: block;
+box-shadow:0 5px 15px white;}

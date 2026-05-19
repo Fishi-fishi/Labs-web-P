@@ -1,0 +1,43 @@
+body {background-color: rgb(233, 87, 87);
+font-size: 25px;
+text-align: center;}
+
+dl {background-color: rgb(255, 188, 0);
+width: 50%;
+display: inline-block;
+border-radius: 5px;
+box-shadow: 3px 3px 15px rgb(255, 188, 0);}
+
+.center-link a {text-align: center;
+background-color: pink;
+border-radius: 5px;
+padding: 5px;}
+
+dt {background-color: rgb(135, 246, 150);
+width: 18%;
+border-radius: 5px;
+padding: 3px;
+box-shadow: 3px 3px 15px white;
+transition: 0.5s;
+text-align: left;
+margin: 10px;}
+
+dt:hover {transform: translateY(-5px);}
+
+dd {margin: 15px;
+background-color: grey;
+border-radius: 5px;
+box-shadow: 3px 3px 15px grey;
+transition: 0.5s;}
+
+dd:hover {transform: scale(1.03);}
+
+a:hover {color: red;}
+
+span {background-color: pink;
+display: inline-block;
+border-radius: 5px;
+padding: 3px;
+transition: 0.5s}
+
+span:hover {transform: scale(1.1);}

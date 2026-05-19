@@ -1,0 +1,57 @@
+body {text-align: center;
+margin: 0;
+height: 100vh;
+background:
+linear-gradient(rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)),
+url("../images/dnipro.jpg");
+background-size: cover;
+background-position: center;}
+
+h1 {background-color: rgba(255, 255, 255, 0.3);
+margin: auto;
+border-radius: 10px;
+padding: 5px;
+display: block;
+text-align: center;
+width: fit-content;
+margin-bottom: 50px;}
+
+div {display: flex;
+gap: 40px;}
+
+.first {color: white;
+font-size: 18pt;
+margin: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+padding: 5px;
+transition: 0.5s;}
+
+.first:hover {transform: scale(1.1);}
+
+.second {color: grey;
+font-size: 20pt;
+font-family: arial;
+margin: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+padding: 5px;
+transition: 0.5s;}
+
+.second:hover {transform: scale(1.1);}
+
+a {font-size: 50pt;
+color: white;
+text-decoration: none;
+display: block;
+width: fit-content;
+margin: auto;
+text-align: center;
+border-radius: 5px;
+padding: 5px;
+margin-top: 200px;
+transition: 0.5s;}
+
+a:hover {transform: scale(1.2);
+color: rgb(0, 242, 255);}
