@@ -1,0 +1,516 @@
+/* --- ЗАГАЛЬНІ СТИЛІ ТА ПРЕМІАЛЬНИЙ ФОН (Книжкова полиця) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Playfair Display', Georgia, serif;
+    line-height: 1.6;
+    /* Фон сторінки - імітація дерев'яної книжкової полиці */
+    background: #8B6914;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            #7a5a10 0px,
+            #7a5a10 2px,
+            #a07818 2px,
+            #a07818 4px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.05) 0px,
+            rgba(0, 0, 0, 0.05) 2px,
+            transparent 2px,
+            transparent 8px
+        );
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Основний контейнер - білий фон для контенту з книжковим декором */
+main {
+    background-color: #fffef7;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            rgba(139, 105, 20, 0.04) 0px,
+            rgba(139, 105, 20, 0.04) 1px,
+            transparent 1px,
+            transparent 40px
+        ),
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    backdrop-filter: blur(0px);
+    margin: 20px auto;
+    padding: 30px;
+}
+
+/* Декоративні елементи "книжки" на фоні контенту */
+main::before {
+    content: "📚 📖 📘 📙 📗 📕 📒 📓 📔 📖 📚";
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 70px;
+    opacity: 0.05;
+    pointer-events: none;
+    white-space: pre;
+    font-family: 'Segoe UI', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+}
+
+/* Додатковий декоративний штамп у кутику */
+main::after {
+    content: "✧";
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 55px;
+    color: #d4af37;
+    opacity: 0.1;
+    font-family: serif;
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
+
+/* --- СТИЛІ ДЛЯ СЛАЙДЕРА --- */
+.carousel {
+    position: relative;
+}
+
+.carousel-indicators {
+    bottom: -5px;
+    z-index: 15;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 14px;
+    padding: 12px 24px;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 28%;
+    width: auto;
+    max-width: 85%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 10;
+}
+
+.carousel-caption h5 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Зображення в слайдері */
+.slider-img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Стилі для заглушок зображень (якщо використовуються) */
+.slider-img-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #8B6914 0%, #c49a2b 50%, #f0c674 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- FLEXBOX ТА GRID ДЛЯ АДАПТИВНОСТІ --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.news-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s ease;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.news-card .content {
+    padding: 18px;
+}
+
+.news-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.news-card .date {
+    color: #8B6914;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+/* --- ГАЛЕРЕЯ (GRID) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* --- КАРТА GOOGLE --- */
+.map-container {
+    margin: 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* --- СТИЛІ ДЛЯ МЕНЮ - ПРЕМІАЛЬНА ВЕРСІЯ --- */
+.navbar {
+    background: linear-gradient(135deg, #5d3a1a 0%, #8B6914 100%) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #f0c674;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 20px !important;
+    transition: all 0.3s ease-in-out !important;
+    position: relative;
+    color: rgba(255, 248, 225, 0.95) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffeb99 !important;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f0c674, #ffeb99);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 60%;
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffeb99 !important;
+    background: rgba(240, 198, 116, 0.15) !important;
+    border-radius: 30px;
+}
+
+.navbar-nav .nav-link.active::after {
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #f0c674, #ffeb99);
+    bottom: 5px;
+}
+
+/* --- ШАПКА З ПРЕМІАЛЬНИМ ЕФЕКТОМ --- */
+.header-custom {
+    background: linear-gradient(135deg, #4a2c0f 0%, #5d3a1a 100%) !important;
+    border-bottom: 3px solid #f0c674;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- СТИЛІ ДЛЯ ШИРОКИХ ЗАВИТУШОК (SVG) --- */
+
+/* Рядок з логотипом та завитками */
+.header-logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+}
+
+/* Контейнер для завитка (займає всю вільну ширину) */
+.scroll-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 50px;
+}
+
+/* Лівий завиток - вирівнювання по правому краю */
+.left-scroll-container {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+/* Правий завиток - вирівнювання по лівому краю */
+.right-scroll-container {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+/* SVG завитки */
+.deco-scroll-svg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 60px;
+}
+
+/* Контейнер для логотипу (центр) */
+.logo-wrapper {
+    flex-shrink: 0;
+    padding: 0 15px;
+}
+
+/* Головний логотип */
+.main-logo {
+    max-height: 140px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.02);
+}
+
+/* --- ФУТЕР --- */
+footer {
+    background: linear-gradient(135deg, #4a2c0f 0%, #5d3a1a 100%) !important;
+    border-top: 2px solid #f0c674;
+    color: #fff8e0;
+}
+
+/* --- АДАПТИВНІ МЕДІАЗАПИТИ --- */
+@media (max-width: 768px) {
+    .carousel-caption {
+        padding: 8px 16px;
+        bottom: 25%;
+        max-width: 90%;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 0.9rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.7rem;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 0.85rem !important;
+        padding: 8px 12px !important;
+    }
+    
+    main {
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    main::before {
+        font-size: 40px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .slider-img {
+        height: 250px;
+    }
+    
+    /* Адаптивність для шапки на планшетах */
+    .header-logo-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .scroll-side {
+        width: 100%;
+        flex: none;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+    
+    .deco-scroll-svg {
+        max-width: 200px;
+        min-height: 40px;
+    }
+    
+    .main-logo {
+        max-height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-caption {
+        padding: 5px 10px;
+        bottom: 20%;
+        border-radius: 8px;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 0.7rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.55rem;
+    }
+    
+    .news-card h3 {
+        font-size: 1rem;
+    }
+    
+    main::before {
+        font-size: 30px;
+        opacity: 0.03;
+    }
+    
+    .deco-scroll-svg {
+        max-width: 150px;
+        min-height: 30px;
+    }
+    
+    .main-logo {
+        max-height: 70px;
+    }
+}
+
+/* --- ДОДАТКОВІ СТИЛІ ДЛЯ JQUERYUI (ПРЕМІАЛЬНЕ ОФОРМЛЕННЯ) --- */
+.ui-tooltip {
+    background: linear-gradient(135deg, #5d3a1a, #8B6914);
+    color: #ffeb99;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #f0c674;
+}
+
+.ui-dialog {
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    border: 1px solid #f0c674;
+}
+
+.ui-dialog-titlebar {
+    background: linear-gradient(135deg, #5d3a1a, #8B6914);
+    color: #ffeb99;
+    border-radius: 20px 20px 0 0;
+    font-weight: bold;
+}
+
+/* --- АНІМАЦІЇ --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.55s ease forwards;
+}
+
+/* --- ПРЕМІАЛЬНИЙ ЕФЕКТ ДЛЯ ЗАГОЛОВКІВ --- */
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 35px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #5d3a1a, #8B6914);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, #f0c674, #ffeb99);
+    border-radius: 4px;
+}
