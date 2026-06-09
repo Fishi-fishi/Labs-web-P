@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<title> Гра "Послідовність чисел" </title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"> </script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="mainScreen" class="screen active">
+<div class="game-title-container">
+<h1 class="main-title"> 🎯 Лови цифри! </h1>
+<p class="subtitle"> Гра на увагу та послідовність </p>
+</div>
+<button id="startGameBtn" class="btn-start"> ▶ Почати гру </button>
+</div>
+<div id="gameScreen" class="screen">
+<div class="game-header">
+<div class="timer-box">
+<span class="timer-label"> ⏱ Час: </span>
+<span id="timerValue" class="timer-value"> 60 </span>
+<span class="timer-unit">сек</span>
+</div>
+<div class="attempt-info">
+Спроб: <span id="attemptCounter"> 0 </span>
+</div>
+<button id="restartGameBtn" class="btn-restart"> 🔄 Почати з початку </button>
+</div>
+<div id="gameBoard" class="game-board"></div>
+<div class="stats-section">
+<h3> 📊 Таблиця результатів </h3>
+<div class="table-wrapper">
+<table id="statsTable">
+<thead>
+<tr> <th> Назва гри </th> <th> Час (сек) </th></tr>
+</thead>
+<tbody id="statsBody">
+<tr> <td colspan="2"> Ще немає завершених ігор </td> </tr>
+</tbody>
+</table>
+</div>
+<div class="best-note">🏆 Кращий результат підсвічено зеленим</div>
+</div>
+</div>
+<div id="errorModal" class="modal">
+<div class="modal-content">
+<span class="close-modal">&times;</span>
+<p> ❌ Невірна цифра! Спробуйте ще раз. </p>
+<button class="modal-ok">OK</button>
+</div>
+</div>
+<div id="winModal" class="modal">
+<div class="modal-content win-modal">
+<span class="close-modal">&times;</span>
+<p> 🎉 Вітаємо! Ви перемогли! 🎉 </p>
+<p> Гра розпочнеться з початку. </p>
+<button class="modal-ok win-ok"> Почати нову гру </button>
+</div>
+</div>
+<script src="JS/script.js"> </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<title> Вгадай число </title>
+<link rel="stylesheet" href="css/style 2.css">
+</head>
+<body>
+<h1> Вгадай число </h1>
+<p> від 0 до 100 </p> 
+<input type="number" id="guessInput" min="0" max="100" placeholder="Ваше число">
+<button id="guessBtn"> Перевірити </button>
+<button id="newGameBtn"> Hова гра </button>
+<div id="message"> </div>
+<div id="attemptsInfo"> </div>
+<div>
+<b> Консоль гри: </b>
+<div id="consoleLog"> </div>
+</div>
+<script>
+let secretNumber = Math.floor(Math.random() * 101);
+let attempts = 0;
+let gameActive = true;
+let gameFinished = false;
+function log(message) {
+const consoleDiv = document.getElementById('consoleLog');
+const now = new Date();
+const timestamp = `${now.getDate().toString().padStart(2,'0')}.${(now.getMonth()+1).toString().padStart(2,'0')}.${now.getFullYear()} ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
+const logEntry = document.createElement('div');
+logEntry.textContent = `${timestamp} ${message}`;
+consoleDiv.appendChild(logEntry);
+consoleDiv.scrollTop = consoleDiv.scrollHeight;          
+while (consoleDiv.children.length > 20) {
+consoleDiv.removeChild(consoleDiv.firstChild);}}
+function getHint(guess) {
+const diff = Math.abs(secretNumber - guess);
+if (diff === 0) return "вірно";
+if (diff <= 5) return "дуже гаряче";
+if (diff <= 15) return "гаряче";
+if (diff <= 30) return "тепліше";
+if (diff <= 50) return "холодно";
+return "дуже холодно";}
+function updateUI(message) {
+const msgDiv = document.getElementById('message');
+msgDiv.innerHTML = message;}
+function updateAttempts() {
+const attemptsDiv = document.getElementById('attemptsInfo');
+if (attempts > 0) {
+attemptsDiv.innerHTML = `Кількість спроб: ${attempts}`;} else {attemptsDiv.innerHTML = '';}}
+function checkGuess() {
+if (!gameActive || gameFinished) {
+updateUI("Гра завершена! Натисніть 'Нова гра'"); return;}
+const input = document.getElementById('guessInput');
+const guess = parseInt(input.value);
+if (isNaN(guess) || guess < 0 || guess > 100) {
+updateUI("Введіть число від 0 до 100!");
+return;}
+attempts++;
+const hint = getHint(guess);
+const isCorrect = (guess === secretNumber);
+log(`Спроба ${attempts}: число ${guess} – ${isCorrect ? 'вірно' : 'не вірно'}`);
+if (isCorrect) {
+updateUI(`За ${attempts} спроб ви вгадали число ${secretNumber}`);
+gameFinished = true;
+gameActive = false;
+document.getElementById('guessBtn').disabled = true;
+updateAttempts();
+log(`ГРА ЗАВЕРШЕНА! Вгадано число ${secretNumber} за ${attempts} спроб`);} 
+else {updateUI(`Не вірно! ${hint}. Спробуйте ще раз.`);
+updateAttempts();
+input.value = '';
+input.focus();}}
+function startNewGame() {
+secretNumber = Math.floor(Math.random() * 101);
+attempts = 0;
+gameActive = true;
+gameFinished = false;
+document.getElementById('guessInput').value = '';
+document.getElementById('guessInput').disabled = false;
+document.getElementById('guessBtn').disabled = false;
+updateUI("Нова гра! Вгадайте число від 0 до 100");
+updateAttempts();
+const consoleDiv = document.getElementById('consoleLog');
+consoleDiv.innerHTML = '';
+log(`НОВА ГРА! Загадано число від 0 до 100`);}
+function handleEnter(e) {
+if (e.key === 'Enter' && gameActive && !gameFinished) {checkGuess();}}
+document.getElementById('guessBtn').addEventListener('click', checkGuess);
+document.getElementById('newGameBtn').addEventListener('click', startNewGame);
+document.getElementById('guessInput').addEventListener('keypress', handleEnter);
+log(`ГРА РОЗПОЧАТА! Загадано число від 0 до 100`);
+updateUI("Введіть число та натисніть 'Перевірити'");
+</script>
+</body>
+</html>

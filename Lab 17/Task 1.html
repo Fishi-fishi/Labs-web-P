@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<title> Date </title>
+<link rel="stylesheet" href="css/style 1.css">
+</head>
+<body>
+<h2 id="time"> </h2>
+<button onclick="showTime()"> Оновити </button>
+<script>
+function showTime() {const d = new Date();
+const h = String(d.getHours()).padStart(2,'0');
+const m = String(d.getMinutes()).padStart(2,'0');
+const s = String(d.getSeconds()).padStart(2,'0');
+const days = ['неділя','понеділок','вівторок','середа','четвер','п\'ятниця','субота'];
+const months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+const res = `${h}:${m}:${s}, ${days[d.getDay()]} , ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()} року`;
+console.log(res); document.getElementById('time').innerText = res;}
+showTime();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {font-family: 'Comic Neue', 'Segoe UI', 'Arial', sans-serif;
+background: linear-gradient(135deg, #FFE5B4 0%, #FFB6C1 100%);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin: 0;}
+
+.clock-container {background: white;
+border-radius: 20px;
+padding: 40px 60px;
+text-align: center;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+border: 3px solid #FF6B6B;}
+
+#time {font-size: 2em;
+color: #FF6B6B;
+margin-bottom: 20px;
+background: #FFF3E0;
+padding: 15px 25px;
+border-radius: 15px;
+display: inline-block;}
+
+button {background: #4ECDC4;
+color: white;
+border: none;
+padding: 10px 25px;
+font-size: 1.1em;
+border-radius: 50px;
+cursor: pointer;
+transition: transform 0.2s;
+font-weight: bold;}
+
+button:hover {transform: scale(1.05);
+background: #FF6B6B;}
+
+button:active {transform: scale(0.95);}
